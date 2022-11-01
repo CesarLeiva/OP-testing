@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OP testing</title>
+    <link rel="icon" href="/icons8-matemáticas-40.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body style="background: #5F6C7B;">
+    <nav class="navbar mx-5 my-4">
+        <h1>OP Testing</h1>
+        <a href="index.html" style="text-decoration: none; color: #5F6C7B;">
+            <button class="btn btn-primary"><span class="mx-3">Iniciar sesión</span></button>
+        </a>
+    </nav>
+    <section style="background: #D2B1EA; width: 400px; height:min-content; margin: auto; border-radius: 20px; font-size: large;">
+        <div class="m-5">
+            <br>
+            <h1 style="text-align: center;">Registro</h1>
+            <form action="/index.html" method="get">
+                <br>
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input name="usuario" type="text" class="form-control" id="usuario" placeholder="Usuario" required>
+                </div>
+                <p id="msg" style="text-align: center; color: #5F6C7B;"></p>
+                <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input name="contraseña" type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contraseña2" class="form-label">Repetir contraseña</label>
+                    <input name="contraseña2" type="password" class="form-control" id="contraseña2" placeholder="Contraseña" required>
+                </div>
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" style="text-align: right;"><span class="mx-3">Registrarse</span></button>
+                </div>
+                
+            </form>
+            <br>
+        </div>
+    </section>
+    <script>
+        document.querySelector('form')
+        .addEventListener('submit', e => {
+            e.preventDefault()
+            const data = Object.fromEntries(
+                new FormData(e.target)
+            )
+            if(data.contraseña != data.contraseña2){
+                document.getElementById('msg').innerHTML = 'Las contraseñas no coinciden'
+                e.preventDefault()
+            }
+            else{
+                document.getElementById('msg').innerHTML = ''
+                const usuario = data.usuario;
+                const contraseña = data.contraseña;
+                console.log('usuario: '+usuario, '\ncontraseña: '+contraseña)
+            }
+        })
+    </script>
+</body>
+</html>

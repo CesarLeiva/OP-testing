@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OP Testing</title>
+    <link rel="icon" href="/icons8-matemáticas-40.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body style="background: #D2B1EA;">
+    <nav class="navbar mx-5 my-4">
+        <h1>OP Testing</h1>
+        <a href="index.html" style="text-decoration: none; color: #5F6C7B;">
+            <button class="btn btn-primary"><span class="mx-3">Cerrar sesión</span></button>
+        </a>
+    </nav>
+
+
+    <section style="background: #FF8298; width: 500px; margin: auto; border-radius: 20px; font-size: large;">
+        <div class="m-5" style="margin-top: 20px;">
+            <br>
+            <h1 style="text-align: center;">Números a operar</h1>
+            <br><br>
+            <form action="#" method="get">
+                <br>
+                <div class="mb-5 d-flex">
+                    <input name="num1" type="number" class="form-control" id="num1" placeholder="1234" required>
+                    <span class="mx-4">op</span>
+                    <input name="num2" type="number" class="form-control" id="num2" placeholder="1234" required>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 20px;"><span class="mx-3">Operar</span></button>
+                </div>
+                
+            </form>
+            <div id="resultados">
+                
+            </div>
+            <div class="mt-5 mb-3" style="text-align: center;">
+                <a href="historial.html" style="text-decoration: none; color: #5F6C7B;">
+                    <button class="btn btn-primary"><span class="mx-3">Ver hisrotial de operaciones</span></button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </section>
+    <script>
+        document.querySelector('form')
+        .addEventListener('submit', e => {
+            e.preventDefault()
+            const data = Object.fromEntries(
+                new FormData(e.target)
+            )
+
+            //aquí se mete la operación y se envía a la base de datos cada vez que se haga una
+            const operacion = {
+                num1: data.num1,
+                num2: data.num2,
+                
+                suma: data.num1 + data.num2,
+                resta: data.num1 - data.num2,
+                multiplicacion: data.num1 * data.num2,
+                division: data.num1 / data.num2
+            }
+
+            document.getElementById('resultados').innerHTML = 
+            `<h2>Operaciones entre `+operacion.num1+` y `+operacion.num2+`</h2><br>
+            <h3>Suma = `+operacion.suma+`</h3>
+            <h3>Resta = `+operacion.resta+`</h3>
+            <h3>Multiplicación = `+operacion.multiplicacion+`</h3>
+            <h3>División = `+operacion.division+`</h3>`;
+        })
+    </script>
+</body>
+</html>
