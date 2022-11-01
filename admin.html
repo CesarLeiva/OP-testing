@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OP Testing</title>
-    <link rel="icon" href="/icons8-matemáticas-40.png">
+    <link rel="icon" href="/icon.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body style="background: #5F6C7B;">
     <nav class="navbar mx-5 my-4">
-        <h1>OP Testing</h1>
+        <h1>OP Testing - Administrador</h1>
         <a href="index.html" style="text-decoration: none; color: #5F6C7B;">
             <button class="btn btn-primary"><span class="mx-3">Cerrar sesión</span></button>
         </a>
@@ -23,18 +23,14 @@
             <h1 style="text-align: center;">Historial de operaciones</h1>
             <br>
             <div id="op"></div>
-            <div style="text-align: center; margin-top: 70px;">
-                <a href="clientes.html" style="text-decoration: none; color: #5F6C7B;">
-                    <button class="btn btn-primary"><span class="mx-3">Regresar a operar</span></button>
-                </a>
-            </div>
-            <br><br>
+            <br>
             
         </div>
     </section>
     <script>
         //estas operaciones son para probar, hay que llamar el arreglo de las operaciones hechas desde la base de datos
         const operacion1 = {
+                usuario: "César",
                 num1: 1234,
                 num2: 1234,
                 
@@ -44,6 +40,7 @@
                 division: 124124
             }
         const operacion2 = {
+                usuario: "Isaac",
                 num1: 234,
                 num2: 23,
                 
@@ -59,6 +56,7 @@
             `<section class="mb-4" style="background: #D2B1EA; border-radius: 20px;">
             <card  class="d-flex">
             <div class="m-5" style=" margin:auto">
+            <h1>Operación de `+operaciones[i].usuario+`</h1>
             <h2>Operaciones entre `+operaciones[i].num1+` y `+operaciones[i].num2+`</h2><br>
             <h3>Suma = `+operaciones[i].suma+`</h3>
             <h3>Resta = `+operaciones[i].resta+`</h3>
